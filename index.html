@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zentaro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>Zentaro</h1>
+
+
+<nav>
+  <p>Home | Costumes | Dresses | Shoes | Accessories | Figures | Wallpapers | Contact</p> <div class="nav-cart">
+  <button id="navCartBtn" onclick="goToCart()">Cart </button>
+  </div><br>
+
+  <div class="survey">
+    <a href="survey.html">Fan Survey</a>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<section>
+<h2>Welcome to Zentaro</h2>
+
+<article>
+
+<figure>
+<img src="images/main.jpg" class="main-img">
+
+</figure>
+
+
+</article>
+</section>
+
+
+<section class="offer-banner">
+<h2>🔥 Special Anime Mega Offer 🔥</h2>
+<p>Sign up now and get <strong>10% OFF</strong> on your first purchase!</p>
+<p>Buy above 5000Tk → Free Delivery 🚚</p>
+<br>
+<a href="#" class="offer-btn">Shop Now</a>
+</section>
+
+
+
+     <h2 class="featured-title">Featured Collections</h2>
+        <section class="products">
+
+            <article>
+                <h3>Uzumaki Naruto Cosplay Costume</h3>
+                <figure>
+                    <img src="images/naruto.jpg">
+                    <figcaption>6999Tk - Imported from Japan</figcaption>
+                    <p>Dress like Naruto with full imported high-quality costume set.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('Uzumaki Naruto Cosplay Costume',6999,'images/naruto.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('Uzumaki Naruto Cosplay Costume',6999,'images/naruto.jpg')">Buy Now</button>
+                </div>
+            </article>
+            <article>
+                <h3>One Piece Themed Hoodie</h3>
+                <figure>
+                    <img src="images/onepiece.jpg">
+                    <figcaption>12000Tk - Imported from Japan</figcaption>
+                    <p>Stylish hoodie featuring Straw Hat crew.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('One Piece Themed Hoodie',12000,'images/onepiece.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('One Piece Themed Hoodie',12000,'images/onepiece.jpg')">Buy Now ⚡</button>
+                </div>
+            </article>
+            <article>
+                <h3>Attack on Titan Sneakers</h3>
+                <figure>
+                    <img src="images/aot.jpg">
+                    <figcaption>20000Tk - Imported from Japan</figcaption>
+                    <p>Anime-inspired comfortable sneakers.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('Attack on Titan Sneakers',20000,'images/aot.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('Attack on Titan Sneakers',20000,'images/aot.jpg')">Buy Now ⚡</button>
+                </div>
+            </article>
+            <article>
+                <h3>Demon Slayer Keychain</h3>
+                <figure>
+                    <img src="images/demon.jpg">
+                    <figcaption>2000Tk - Imported from China</figcaption>
+                    <p>Collectible accessory for bags or keys.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('Demon Slayer Keychain',2000,'images/demon.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('Demon Slayer Keychain',2000,'images/demon.jpg')">Buy Now ⚡</button>
+                </div>
+            </article>
+
+            <article>
+                <h3>Poster</h3>
+                <figure>
+                    <img src="images/poster.jpg">
+                    <figcaption>1200Tk - Imported from Japan</figcaption>
+                    <p>High-quality poster for your room.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('Poster',1200,'images/poster.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('Poster',1200,'images/poster.jpg')">Buy Now</button>
+                </div>
+            </article>
+            <article>
+                <h3>Anime Action Figure</h3>
+                <figure>
+                    <img src="images/figure.jpg">
+                    <figcaption>5000Tk - Custom Handmade</figcaption>
+                    <p>Highly detailed collectible figure.</p>
+                </figure>
+                <div class="product-buttons">
+                    <button class="cart-btn" onclick="showCartMessage('Anime Action Figure',5000,'images/figure.jpg')">Add to Cart 🛒</button>
+                    <button class="buy-btn" onclick="goToOrder('Anime Action Figure',5000,'images/figure.jpg')">Buy Now</button>
+                </div>
+            </article>
+</div>
+</article>
+
+<article>
+<h3>Anime Action Figure</h3>
+<figure>
+<img src="images/figure.jpg">
+<figcaption>5000Tk - Custom Handmade</figcaption>
+<p>Highly detailed collectible figure.</p>
+</figure>
+
+<div class="product-buttons">
+<button class="cart-btn"
+onclick="showCartMessage('Anime Action Figure',5000)">
+Add to Cart 
+</button>
+<button class="buy-btn"
+onclick="goToOrder('Anime Action Figure',5000)">
+Buy Now 
+</button>
+</div>
+</article>
+</section>
+</section>
+<aside>
+    
+<h4>Special Offers</h4>
+<p>Sign up to get 10% off on your first purchase.</p>
+<p>Buy more than 5000Tk → Free delivery.</p>
+<p>Buy 10000Tk → Loyalty card.</p>
+</aside>
+
+</main>
+
+<footer>
+<address>
+Helpline:+8801783214733<br>
+Email: support@zentaro.com<br>
+Location: Dhaka, Bangladesh
+</address>
+
+<p>© 2026 Zentaro . All Rights Reserved.</p>
+</footer>
+
+
+
+<div id="animePopup" class="anime-popup">
+  <div class="popup-box">
+    <h2>Happy Shopping</h2>
+    <p id="popupText"></p>
+    <div class="popup-buttons">
+    </div>
+  </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("zentaroCart")) || [];
+let selectedProduct = "";
+let selectedPrice = 0;
+let selectedImage = "";
+
+
+function showCartMessage(name, price, imgSrc){
+    selectedProduct = name;
+    selectedPrice = price;
+    selectedImage = imgSrc;
+
+    document.getElementById("animePopup").style.display = "flex";
+
+    document.getElementById("popupText").innerHTML = `
+        <div style="display:flex; align-items:center; gap:15px;">
+            <img src="${imgSrc}" style="width:100px;height:100px;border-radius:10px;">
+            <div>
+                <h3 style="margin:0;">${name}</h3>
+                <p>Price: ${price} Tk</p>
+                Quantity: <input type="number" id="popupQty" value="1" min="1" style="width:50px;">
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <button id="addBtn" onclick="addToCartFromPopup()" style="padding:5px 10px;margin-right:10px;">Add to Cart 🛒</button>
+            <button onclick="buyNowFromPopup()" style="padding:5px 10px;">Buy Now ⚡</button>
+        </div>
+    `;
+}
+
+
+function closePopup(){
+    document.getElementById("animePopup").style.display = "none";
+}
+
+
+function addToCartFromPopup(){
+    let quantity = parseInt(document.getElementById("popupQty").value);
+    if(quantity <= 0) return;
+
+    let existing = cart.find(item => item.name === selectedProduct);
+    if(existing){
+        existing.quantity += quantity;
+    } else {
+        cart.push({ name: selectedProduct, price: selectedPrice, quantity: quantity, img: selectedImage });
+    }
+
+    localStorage.setItem("zentaroCart", JSON.stringify(cart));
+    let addBtn = document.getElementById("addBtn");
+    addBtn.innerText = "Added ";
+    addBtn.disabled = true; 
+}
+
+function buyNowFromPopup(){
+    localStorage.setItem("productName", selectedProduct);
+    localStorage.setItem("productPrice", selectedPrice);
+    localStorage.setItem("productImg", selectedImage);
+    window.location.href = "order.html";
+}
+document.querySelector("#animePopup .popup-buttons button:nth-child(2)").onclick = function(){
+    window.location.href = "index.html"; 
+}
+
+function goToOrder(name, price, img){
+    localStorage.setItem("productName", name);
+    localStorage.setItem("productPrice", price);
+    localStorage.setItem("productImg", img);
+    window.location.href = "order.html";
+}
+
+function goToCart(){
+    window.location.href = "cart.html";
+
+function updateNavCartCount(){
+    let cart = JSON.parse(localStorage.getItem("zentaroCart")) || [];
+    let totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById("cartCount").innerText = totalQty;
+}
+
+updateNavCartCount();
+document.getElementById("navCartBtn").addEventListener("click", function(){
+    window.location.href = "cart.html";
+});
+}
+</script>
+</body>
+</html>

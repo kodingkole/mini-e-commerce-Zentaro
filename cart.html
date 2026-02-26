@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zentaro Cart</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Zentaro Cart</h1>
+<nav>
+<p>Home | Costumes | Dresses | Shoes | Accessories | Figures | Wallpapers | Contact</p>
+</nav>
+</header>
+<main>
+<section class="cart-section">
+<h2> Cart </h2>
+<div id="cartItems"></div>
+<div class="cart-buttons">
+    <button id="buyNowCart">Buy Now </button>
+    <button id="continueCart">Continue Shopping </button>
+</div>
+</section>
+</main>
+<footer>
+<p>© 2026 Zentaro. All Rights Reserved.</p>
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("zentaroCart")) || [];
+const cartContainer=document.getElementById("cartItems");
+function renderCart(){
+    if(cart.length===0){cartContainer.innerHTML="<p>Your cart is empty </p>";return;}
+    cartContainer.innerHTML=cart.map((item,index)=>`
+        <div class="cart-item" data-index="${index}">
+            <img src="${item.img}">
+            <div class="cart-info">
+                <h3>${item.name}</h3>
+                <p>Price: ${item.price} Tk</p>
+                <p>Quantity:
+                    <button class="decBtn">-</button>
+                    <span class="qty">${item.quantity}</span>
+                    <button class="incBtn">+</button>
+                </p>
+                <button class="removeBtn">Remove </button>
+            </div>
+        </div>
+    `).join('');
+
+    document.querySelectorAll(".incBtn").forEach(btn=>btn.addEventListener("click",increaseQty));
+    document.querySelectorAll(".decBtn").forEach(btn=>btn.addEventListener("click",decreaseQty));
+    document.querySelectorAll(".removeBtn").forEach(btn=>btn.addEventListener("click",removeItem));
+}
+function increaseQty(e){
+    let index=e.target.closest(".cart-item").dataset.index;
+    cart[index].quantity++;
+    localStorage.setItem("zentaroCart",JSON.stringify(cart));
+    renderCart();
+}
+function decreaseQty(e){
+    let index=e.target.closest(".cart-item").dataset.index;
+    if(cart[index].quantity>1){cart[index].quantity--; localStorage.setItem("zentaroCart",JSON.stringify(cart)); renderCart();}
+}
+function removeItem(e){
+    let index=e.target.closest(".cart-item").dataset.index;
+    cart.splice(index,1);
+    localStorage.setItem("zentaroCart",JSON.stringify(cart));
+    renderCart();
+}
+document.getElementById("buyNowCart").addEventListener("click",()=>{
+    if(cart.length===0){ alert("Cart empty!"); return; }
+    localStorage.setItem("productName", cart[0].name);
+    localStorage.setItem("productPrice", cart[0].price);
+    localStorage.setItem("productImg", cart[0].img);
+    window.location.href="order.html";
+});
+document.getElementById("continueCart").addEventListener("click",()=>{window.location.href="index.html";});
+renderCart();
+</script>
+</body>
+</html>

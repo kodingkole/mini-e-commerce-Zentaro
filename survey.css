@@ -1,0 +1,174 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background: url('anime-bg.jpg') no-repeat center center/cover;
+  min-height:100vh;
+  position:relative;
+}
+
+
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(6px);
+  z-index:-1;
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+}
+
+.form-wrapper{
+  background:rgba(20,20,40,0.95);
+  width:100%;
+  max-width:600px;
+  padding:45px;
+  border-radius:12px;
+  color:white;
+  box-shadow:0 0 30px #6a00ff;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:10px;
+  font-size:32px;
+}
+
+.subtitle{
+  text-align:center;
+  margin-bottom:30px;
+  color:#ddd;
+  font-size:15px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;   
+}
+
+
+label{
+  font-size:16px;
+  font-weight:600;
+}
+
+
+input,
+select,
+textarea{
+  width:100%;
+  height:45px;
+  padding:10px 14px;
+  border-radius:6px;
+  border:none;
+  font-size:15px;
+  outline:none;
+}
+
+
+textarea{
+  height:100px;
+  resize:none;
+}
+
+
+select{
+  cursor:pointer;
+}
+
+
+.option-group{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:5px;
+}
+
+
+.option-group input[type="radio"]{
+  appearance:none;
+  width:18px;
+  height:18px;
+  border:2px solid #6a00ff;
+  border-radius:50%;
+  margin-right:8px;
+  position:relative;
+  cursor:pointer;
+}
+
+.option-group input[type="radio"]:checked{
+  background:#6a00ff;
+  box-shadow:0 0 8px #6a00ff;
+}
+
+.option-group label{
+  display:flex;
+  align-items:center;
+  font-weight:500;
+  cursor:pointer;
+}
+
+
+.button-group{
+  display:flex;
+  gap:15px;
+  margin-top:10px;
+}
+
+button[type="submit"]{
+  flex:1;
+  background:#6a00ff;
+  color:white;
+  font-weight:600;
+  transition:0.3s;
+}
+
+button[type="submit"]:hover{
+  background:#5200cc;
+  box-shadow:0 0 15px #6a00ff;
+}
+
+
+.back-btn{
+  flex:1;
+  background:#ff4b5c;
+  color:white;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  background:#d93646;
+  box-shadow:0 0 15px #ff4b5c;
+}
+
+
+.thank-you{
+  text-align:center;
+}
+
+.thank-you h2{
+  margin-bottom:15px;
+}
+
+.thank-you button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:6px;
+  background:#6a00ff;
+  color:white;
+  cursor:pointer;
+}

@@ -1,0 +1,84 @@
+<style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      color:white;
+    }
+    .checkout-box{
+      width:420px;
+      background:rgba(255,255,255,0.08);
+      padding:35px;
+      border-radius:20px;
+      backdrop-filter:blur(15px);
+      box-shadow:0 0 40px rgba(138,43,226,0.4);
+    }
+    h2, h3 {
+      text-align:center;
+      margin-bottom:20px;
+    }
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border-radius:10px;
+      border:none;
+      outline:none;
+      font-size:16px;
+    }
+    button{
+      width:100%;
+      padding:12px;
+      margin-top:15px;
+      border:none;
+      border-radius:25px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.3s;
+      font-size:16px;
+    }
+    .next-btn{
+      background:linear-gradient(45deg,#ff00cc,#6a00ff);
+      color:white;
+    }
+    .confirm-btn{
+      background:linear-gradient(45deg,#00c6ff,#0072ff);
+      color:white;
+    }
+    .delete-btn{
+      background:red;
+      color:white;
+    }
+    .home-btn{
+      background:linear-gradient(45deg,#ff00cc,#6a00ff);
+      color:white;
+    }
+    button:hover{
+      transform:scale(1.05);
+    }
+    .summary-box{
+      display:none;
+      margin-top:15px;
+      background:rgba(255,255,255,0.1);
+      padding:15px;
+      border-radius:15px;
+      font-size:14px;
+    }
+    .success-box{
+      display:none;
+      text-align:center;
+      margin-top:20px;
+    }
+    ul {
+      list-style:none;
+      padding-left:0;
+      margin-bottom:10px;
+    }
+    ul li {
+      margin-bottom:6px;
+    }
+  </style>

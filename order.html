@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Order - Zentaro</title>
+  <link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+
+<div class="order-container">
+
+  <div class="order-box">
+    <p id="productName"></p>
+    <p id="productPrice"></p>
+
+    <form id="orderForm">
+      <input type="text" id="buyerName" placeholder="Your Name" required>
+      <input type="tel" id="buyerPhone" placeholder="Phone Number" required>
+      <input type="email" id="buyerEmail" placeholder="Email Address" required>
+
+     
+      <button type="submit" class="confirm-btn">Confirm Order</button>
+    </form>
+
+    <button onclick="goBack()" class="back-btn">Back</button>
+  </div>
+
+</div>
+
+<script>
+const product = localStorage.getItem("productName");
+const price = localStorage.getItem("productPrice");
+
+
+document.getElementById("productName").innerText = "Product: " + product;
+document.getElementById("productPrice").innerText = "Price: " + price + " Tk";
+
+
+function goBack() {
+  window.history.back();
+}
+
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault(); 
+
+  const name = document.getElementById("buyerName").value.trim();
+  const phone = document.getElementById("buyerPhone").value.trim();
+  const email = document.getElementById("buyerEmail").value.trim();
+
+  if(!name || !phone || !email){
+    alert("Please fill all fields!");
+    return;
+  }
+
+  localStorage.setItem("buyerName", name);
+  localStorage.setItem("buyerPhone", phone);
+  localStorage.setItem("buyerEmail", email);
+
+  window.location.href = "confirm.html";
+});
+</script>
+
+</body>
+</html>

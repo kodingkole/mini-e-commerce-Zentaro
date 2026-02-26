@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url("anime-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+.confirm-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.confirm-box {
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+    padding: 30px;
+    width: 400px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.confirm-box h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ff33d1;
+}
+
+.confirm-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.product-summary {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-details p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.total-price {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: right;
+    margin-top: 10px;
+    color: #00c6ff;
+}
+
+.agreement {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    gap: 10px;
+    font-size: 14px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn {
+    background: linear-gradient(45deg,#00c6ff,#0072ff);
+    color: white;
+}
+
+.confirm-btn:hover {
+    background: linear-gradient(45deg,#33d1ff,#005ce6);
+}
+
+.cancel-btn {
+    background: linear-gradient(45deg,#ff00cc,#6a00ff);
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: linear-gradient(45deg,#ff33d1,#8a00ff);
+}
+
+
+.confirm-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.popup-box h2 {
+    color: #00c6ff;
+    margin-bottom: 20px;
+}
+
+.popup-box p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popup-box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(45deg,#ff00cc,#6a00ff);
+    color: #fff;
+}
+
+.popup-box button:hover {
+    background: linear-gradient(45deg,#ff33d1,#8a00ff);
+}

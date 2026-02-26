@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout - Zentaro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+<div class="checkout-box">
+
+  <h2>Buyer Information</h2>
+  <form id="buyerForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <button type="submit" class="next-btn">Next ➜</button>
+  </form>
+  <div class="summary-box" id="summaryBox">
+    <h3>Review Your Order</h3>
+    <p><b>Name:</b> <span id="reviewName"></span></p>
+    <p><b>Email:</b> <span id="reviewEmail"></span></p>
+    <p><b>Phone:</b> <span id="reviewPhone"></span></p>
+
+    <p><b>Products:</b></p>
+    <ul id="reviewProductsList"></ul>
+
+    <p id="reviewPrice"></p>
+    <p id="reviewDate"></p>
+    <p id="reviewTracking"></p>
+
+    <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+    <button class="delete-btn" onclick="goHome()">Delete</button>
+  </div>
+  <div class="success-box" id="successBox">
+    <h2>🎉 Order Successful!</h2>
+    <p>Your product(s) will arrive within 5-7 days.</p>
+    <button class="home-btn" onclick="goHome()">Order More</button>
+  </div>
+
+</div>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const buyerForm = document.getElementById("buyerForm");
+  const summaryBox = document.getElementById("summaryBox");
+  const successBox = document.getElementById("successBox");
+
+  function generateTracking(){
+    return "ZEN" + Math.floor(Math.random() * 1000000);
+  }
+
+  buyerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add products before checkout.");
+      return;
+    }
+
+    document.getElementById("reviewName").innerText = name;
+    document.getElementById("reviewEmail").innerText = email;
+    document.getElementById("reviewPhone").innerText = phone;
+
+    const productsListEl = document.getElementById("reviewProductsList");
+    productsListEl.innerHTML = "";
+    let totalPrice = 0;
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - ${item.price} Tk`;
+      productsListEl.appendChild(li);
+      totalPrice += Number(item.price);
+    });
+
+    document.getElementById("reviewPrice").innerHTML = `<b>Total Price:</b> ${totalPrice} Tk`;
+
+    const deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 7);
+    document.getElementById("reviewDate").innerHTML = `<b>Estimated Delivery:</b> ${deliveryDate.toDateString()}`;
+
+    const tracking = generateTracking();
+    document.getElementById("reviewTracking").innerHTML = `<b>Tracking Number:</b> ${tracking}`;
+
+    buyerForm.style.display = "none";
+    summaryBox.style.display = "block";
+  });
+
+  function confirmOrder() {
+
+    localStorage.removeItem("cart");
+
+    summaryBox.style.display = "none";
+    successBox.style.display = "block";
+  }
+
+  function goHome() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

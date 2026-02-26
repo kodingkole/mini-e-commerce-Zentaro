@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zentaro Anime Survey</title>
+<link rel="stylesheet" href="survey.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="form-wrapper" id="formBox">
+
+    <h1>Zentaro Fan Survey</h1>
+    <p class="subtitle">Your voice shapes our anime universe ✨</p>
+
+    <form id="surveyForm">
+
+      <label>Name</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Which anime collection excites you most?</label>
+      <select>
+        <option>💖 Which One Wins Your Heart?</option>
+        <option>Cosplay Costumes</option>
+        <option>Figures</option>
+        <option>Streetwear</option>
+        <option>Accessories</option>
+      </select>
+
+      <label>Would you recommend Zentaro?</label>
+      <div class="option-group">
+        <label><input type="radio" name="rec"> Absolutely! 🔥</label>
+        <label><input type="radio" name="rec"> Maybe 🤔</label>
+        <label><input type="radio" name="rec"> Not sure🤢</label>
+      </div>
+
+      <label>Your message to Zentaro:</label>
+      <textarea placeholder="Share your thoughts..."></textarea>
+
+      <div class="button-group">
+        <button type="submit">Submit</button>
+        <button type="button" onclick="goBack()" class="back-btn">Back</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+document.getElementById("surveyForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  document.getElementById("formBox").innerHTML = `
+    <div class="thank-you">
+      <h2>🎉 Doumo Arigatou! Your voice matters!</h2>
+      <p>Thank you for your feedback.  
+      Just like every hero’s journey, your support helps Zentaro grow stronger!  
+      Stay tuned for legendary drops ahead! 🌟</p>
+      <button onclick="location.reload()">Submit Another Response</button>
+    </div>
+  `;
+});
+
+function goBack(){
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

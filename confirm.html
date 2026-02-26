@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Order - Zentaro</title>
+  <link rel="stylesheet" href="confirm.css">
+</head>
+<body>
+<div class="confirm-container">
+  <div class="confirm-box">
+    <h1>Confirm Your Order</h1>
+    <div class="buyer-info">
+      <p><strong>Name:</strong> <span id="custName"></span></p>
+      <p><strong>Phone:</strong> <span id="custPhone"></span></p>
+      <p><strong>Email:</strong> <span id="custEmail"></span></p>
+    </div>
+    <div class="product-summary" id="productSummary">
+    </div>
+    <div class="total-price" id="totalPrice">
+      Total: 0 Tk
+    </div>
+
+    <div class="agreement">
+      <input type="checkbox" id="agreeCheck">
+      <label for="agreeCheck">I agree that I cannot cancel this order.</label>
+    </div>
+    <button type="button" id="reconfirmBtn" class="confirm-btn">Reconfirm Order</button>
+    <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+  </div>
+</div>
+<div class="confirm-popup" id="popup">
+  <div class="popup-box">
+    <h2>Order Confirmed!</h2>
+    <pre id="popupText"></pre>
+    <button onclick="continueShopping()">Continue Shopping</button>
+  </div>
+</div>
+<script>
+const buyerName = localStorage.getItem("customerName") || "Unknown";
+const buyerPhone = localStorage.getItem("customerPhone") || "N/A";
+const buyerEmail = localStorage.getItem("customerEmail") || "N/A";
+
+document.getElementById("custName").innerText = buyerName;
+document.getElementById("custPhone").innerText = buyerPhone;
+document.getElementById("custEmail").innerText = buyerEmail;
+
+
+let cart = JSON.parse(localStorage.getItem("zentaroCart")) || [];
+let buyNow = localStorage.getItem("productName") ? [{
+  name: localStorage.getItem("productName"),
+  price: Number(localStorage.getItem("productPrice")),
+  quantity: 1,
+  img: localStorage.getItem("productImg")
+}] : [];
+
+let products = buyNow.length ? buyNow : cart;
+
+const summaryEl = document.getElementById("productSummary");
+let subtotal = 0;
+
+if(products.length === 0){
+  summaryEl.innerHTML = "<p>Your cart is empty!</p>";
+}else{
+  products.forEach((p, idx)=>{
+    subtotal += p.price * p.quantity;
+    summaryEl.innerHTML += `
+      <div class="product-item">
+        <img src="${p.img}" alt="${p.name}">
+        <div class="product-details">
+          <p>${p.name}</p>
+          <p>Price: ${p.price} Tk</p>
+          <p>Quantity: ${p.quantity}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+let deliveryFee = subtotal > 5000 ? 0 : 500; 
+let loyaltyCard = subtotal > 10000 ? "Yes" : "No";
+let isFirstPurchase = !localStorage.getItem("hasPurchased");
+let discount = isFirstPurchase ? subtotal * 0.10 : 0; 
+let total = subtotal - discount + deliveryFee;
+
+document.getElementById("totalPrice").innerText = `
+Subtotal: ${subtotal} Tk
+Discount: ${discount.toFixed(2)} Tk
+Delivery: ${deliveryFee} Tk
+Total: ${total.toFixed(2)} Tk
+Loyalty Card: ${loyaltyCard}
+`;
+
+document.getElementById("reconfirmBtn").addEventListener("click", function(){
+  if(!document.getElementById("agreeCheck").checked){
+    alert("You must agree before confirming your order!");
+    return;
+  }
+
+  const trackingId = "ZENTARO" + Math.floor(Math.random()*1000000);
+
+  let productsText = products.map(p=>`${p.name} x ${p.quantity} = ${p.price*p.quantity} Tk`).join("\n");
+  document.getElementById("popupText").innerText = `
+Buyer: ${buyerName}
+Email: ${buyerEmail}
+Phone: ${buyerPhone}
+
+Products:
+${productsText}
+
+Delivery Fee: ${deliveryFee} Tk
+Discount: ${discount.toFixed(2)} Tk
+Total Price: ${total.toFixed(2)} Tk
+Loyalty Card: ${loyaltyCard}
+
+Tracking ID: ${trackingId}
+Estimated Delivery: 5-7 days
+
+Thank you for your order!
+  `;
+
+  document.getElementById("popup").style.display = "flex";
+
+  localStorage.removeItem("zentaroCart");
+  localStorage.removeItem("productName");
+  localStorage.removeItem("productPrice");
+  localStorage.removeItem("productImg");
+
+  localStorage.setItem("hasPurchased", "true");
+});
+document.getElementById("cancelBtn").addEventListener("click", ()=>window.location.href="index.html");
+function continueShopping(){
+  document.getElementById("popup").style.display = "none";
+  window.location.href = "index.html";
+}
+</script>
+</body>
+</html>
